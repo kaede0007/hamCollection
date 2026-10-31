@@ -47,9 +47,9 @@ export default function GachaPage() {
                 {/* ガチャを回すボタン */}
                 <button
                     onClick={handleGacha}
-                    className="w-full py-4 bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-white font-bold text-xl rounded-2xl shadow-lg transform active:scale-95 transition-all mb-8 cursor-pointer"
+                    className="border-2 border-black bg-white px-5 py-3 mb-6 font-semibold text-black ring-2 ring-black ring-offset-2 ring-offset-yellow-300 hover:bg-yellow-200 focus:ring-2 focus:ring-yellow-300 focus:outline-0"
                 >
-                    ✨ ガチャを回す！ ✨
+                    ✨ 回す ✨
                 </button>
 
                 {/* 結果発表エリア */}
