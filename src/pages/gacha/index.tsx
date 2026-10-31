@@ -12,6 +12,20 @@ export default function GachaPage() {
         setResult(selected);
     };
 
+    const getRarityStyle = (rarity: string) => {
+        switch (rarity) {
+            case 'SECRET':
+                return 'text-purple-600 bg-purple-100 border-purple-300 animate-pulse';
+            case 'SSR':
+                return 'text-yellow-500 font-extrabold drop-shadow-md';
+            case 'SR':
+                return 'text-blue-600 font-bold';
+            case 'R':
+            default:
+                return 'text-amber-700';
+        }
+    };
+
     return (
         <div className="min-h-screen bg-amber-50 flex flex-col items-center justify-center p-6 text-gray-800">
             {/* ホームへ戻るリンク */}
@@ -41,8 +55,8 @@ export default function GachaPage() {
                 {/* 結果発表エリア */}
                 {result ? (
                     <div className="bg-amber-50/50 rounded-2xl p-6 border-2 border-amber-100 animate-fade-in">
-                        <h2 className="text-xl font-bold text-amber-700 mb-4">
-                            🎉 結果発表 🎉
+                        <h2 className={`text-xl font-bold mb-4 ${getRarityStyle(result.rarity)}`}>
+                            {result.rarity}
                         </h2>
 
                         <div className="flex justify-center mb-4">
@@ -58,12 +72,7 @@ export default function GachaPage() {
                                 <span className="text-sm font-bold text-gray-400">なまえ</span>
                                 <span className="text-lg font-bold text-gray-800">{result.name}</span>
                             </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-sm font-bold text-gray-400">レアリティ</span>
-                                <span className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-bold text-sm">
-                                    {result.rarity}
-                                </span>
-                            </div>
+
                             <div className="pt-2 border-t border-gray-100">
                                 <span className="text-xs font-bold text-gray-400 block mb-1">せつめい</span>
                                 <p className="text-sm text-gray-600 leading-relaxed">{result.description}</p>
