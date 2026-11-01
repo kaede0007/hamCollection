@@ -9,7 +9,7 @@ export default function HomePage() {
                     🐹 HamCollection
                 </h1>
                 <p className="text-amber-700 text-lg">
-                    伝説のシークレットハムを狙え！あなただけの図鑑を完成させよう。
+                    幻(?)のシークレットハムを狙え！あなただけの図鑑を完成させよう。
                 </p>
             </div>
 
