@@ -17,13 +17,19 @@ export default function CollectionPage() {
 
     return (
         <div className="min-h-screen bg-amber-50 flex flex-col items-center p-6 text-gray-800">
-            {/* ホームへ戻るリンク */}
-            <div className="w-full max-w-2xl mb-4">
+            <div className="w-full max-w-2xl mb-4 flex justify-between items-center">
+                <Link
+                    to="/gacha"
+                    className="inline-block text-amber-700 hover:text-amber-900 font-medium transition-colors"
+                >
+                    ← ガチャに戻る
+                </Link>
+
                 <Link
                     to="/"
                     className="inline-block text-amber-700 hover:text-amber-900 font-medium transition-colors"
                 >
-                    ← ホームに戻る
+                    ホームへ →
                 </Link>
             </div>
 
@@ -48,8 +54,8 @@ export default function CollectionPage() {
                             <div
                                 key={hamster.id}
                                 className={`rounded-2xl p-4 border-2 flex flex-col items-center text-center transition-all ${isCollected
-                                        ? "bg-white border-amber-200 shadow-sm"
-                                        : "bg-gray-100 border-gray-300 opacity-70"
+                                    ? "bg-white border-amber-200 shadow-sm"
+                                    : "bg-gray-100 border-gray-300 opacity-70"
                                     }`}
                             >
                                 {isCollected ? (
