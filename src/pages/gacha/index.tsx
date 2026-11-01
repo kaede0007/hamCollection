@@ -8,11 +8,23 @@ export default function GachaPage() {
     const [gachaState, setGachaState] = useState<"idle" | "playing" | "result">("idle");
     const [gachaResult, setGachaResult] = useState<Hamster | null>(null);
 
+    const saveToCollection = (hamster: Hamster) => {
+        const saved = localStorage.getItem("collectedHamsters");
+        const collection: number[] = saved ? JSON.parse(saved) : [];
+
+        const targetKey = hamster.id;
+
+        if (!collection.includes(targetKey)) {
+            collection.push(targetKey);
+            localStorage.setItem("collectedHamsters", JSON.stringify(collection));
+        }
+    }
 
     const handleGacha = () => {
         const randomIndex = Math.floor(Math.random() * HAMSTER_DATA.length);
         const selected = HAMSTER_DATA[randomIndex];
         setGachaResult(selected);
+        saveToCollection(selected);
         setGachaState("playing");
     };
 

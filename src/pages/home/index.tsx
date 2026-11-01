@@ -9,7 +9,7 @@ export default function HomePage() {
                     🐹 HamCollection
                 </h1>
                 <p className="text-amber-700 text-lg">
-                    伝説のシークレットハムを狙え！あなただけの図鑑を完成させよう。
+                    幻(?)のシークレットハムを狙え！あなただけの図鑑を完成させよう。
                 </p>
             </div>
 
@@ -23,7 +23,7 @@ export default function HomePage() {
                 </Link>
                 {/* 後から追加する図鑑ボタン用の枠組み */}
                 <Link
-                    to="/dex"
+                    to="/collection"
                     className="bg-white hover:bg-amber-100 text-amber-800 border-2 border-amber-300 font-bold py-3 px-6 rounded-2xl shadow-sm text-center transition-transform active:scale-95"
                 >
                     📖 ハム図鑑を見る
