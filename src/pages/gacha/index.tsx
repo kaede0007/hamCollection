@@ -48,13 +48,19 @@ export default function GachaPage() {
 
     return (
         <div className="min-h-screen bg-amber-50 flex flex-col items-center justify-center p-6 text-gray-800">
-            {/* ホームへ戻るリンク */}
-            <div className="w-full max-w-md mb-4">
+            <div className="w-full max-w-md mb-4 flex justify-between items-center">
                 <Link
                     to="/"
                     className="inline-block text-amber-700 hover:text-amber-900 font-medium transition-colors"
                 >
                     ← ホームに戻る
+                </Link>
+
+                <Link
+                    to="/collection"
+                    className="inline-block text-amber-700 hover:text-amber-900 font-medium transition-colors"
+                >
+                    図鑑へ →
                 </Link>
             </div>
 
