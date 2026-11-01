@@ -117,7 +117,7 @@ export default function GachaPage() {
                                 </div>
 
                                 <div className="pt-2 border-t border-gray-100">
-                                    <span className="text-xs font-bold text-gray-400 block mb-1">せつめい</span>
+                                    <span className="text-xs font-bold text-gray-400 block mb-1">きみへのエール</span>
                                     <p className="text-sm text-gray-600 leading-relaxed">{gachaResult.description}</p>
                                 </div>
                             </div>
