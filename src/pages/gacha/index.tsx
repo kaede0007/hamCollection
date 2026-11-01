@@ -119,7 +119,7 @@ export default function GachaPage() {
                         onEnded={handleVideoEnded}
                         className="w-full h-full object-cover"
                     />
-
+                    {/* 動画スキップボタン */}
                     <button
                         onClick={() => setGachaState("result")}
                         className="absolute top-6 right-6 bg-black/50 hover:bg-black/80 text-white px-4 py-2 rounded-full text-sm font-bold backdrop-blur-sm transition-colors cursor-pointer z-10"
