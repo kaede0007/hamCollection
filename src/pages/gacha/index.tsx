@@ -70,7 +70,7 @@ export default function GachaPage() {
                     🐹 ハムガチャ 🐹
                 </h1>
 
-                {/* --- 状態1：通常画面（ボタンを表示） --- */}
+                {/* 通常画面 */}
                 {gachaState === "idle" && (
                     <>
                         <button
@@ -87,7 +87,7 @@ export default function GachaPage() {
                     </>
                 )}
 
-                {/* --- 状態3：結果発表エリア --- */}
+                {/* 結果発表エリア */}
                 {gachaState === "result" && gachaResult && (
                     <>
                         <button
@@ -126,7 +126,7 @@ export default function GachaPage() {
                 )}
             </div>
 
-            {/* --- 状態2：動画再生中の画面 --- */}
+            {/* 動画再生中の画面 */}
             {gachaState === "playing" && (
                 <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
                     <video

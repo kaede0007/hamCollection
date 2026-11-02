@@ -4,7 +4,7 @@ import { HAMSTER_DATA } from "../../data/hamsters";
 
 export default function CollectionPage() {
     const [collectedIds, setCollectedIds] = useState<number[]>([]);
-    // 👈 選択中のハムスターのIDを管理（nullなら非表示）
+    // 選択中のハムスターのIDを管理
     const [activeId, setActiveId] = useState<number | null>(null);
 
     useEffect(() => {
@@ -90,7 +90,7 @@ export default function CollectionPage() {
                                     </>
                                 )}
 
-                                {/* 💬 クリックしたカードの真上に現れる吹き出し */}
+                                {/* クリックしたカードの真上に現れる吹き出し */}
                                 {isCollected && isActive && (
                                     <>
                                         {/* 外側をクリックしたら閉じるための透明背景 */}
