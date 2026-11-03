@@ -3,10 +3,31 @@ import { useState } from "react";
 import { HAMSTER_DATA } from "../../data/hamsters";
 import type { Hamster } from "../../data/hamsters";
 
+//ガチャ上限回数3回
+const MAX_GACHA_LIMIT = 3;
+
+//日本時間取得
+const getTodayString = (): string => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+};
+
 export default function GachaPage() {
     // 画面の状態管理: "idle"（通常） | "playing"（動画再生中） | "result"（結果表示）
     const [gachaState, setGachaState] = useState<"idle" | "playing" | "result">("idle");
     const [gachaResult, setGachaResult] = useState<Hamster | null>(null);
+
+    // 本日の残り回数の状態管理
+    const [remainingCount, setRemainingCount] = useState<number>(() => {
+        const today = getTodayString();
+        const savedDate = localStorage.getItem("gacha_date");
+        const savedCount = savedDate === today ? Number(localStorage.getItem("gacha_count") || "0") : 0;
+        return Math.max(0, MAX_GACHA_LIMIT - savedCount);
+    });
 
     const saveToCollection = (hamster: Hamster) => {
         const saved = localStorage.getItem("collectedHamsters");
@@ -21,6 +42,22 @@ export default function GachaPage() {
     }
 
     const handleGacha = () => {
+        const today = getTodayString();
+        const savedDate = localStorage.getItem("gacha_date");
+        const savedCount = savedDate === today ? Number(localStorage.getItem("gacha_count") || "0") : 0;
+
+        // 上限チェック
+        if (savedCount >= MAX_GACHA_LIMIT) {
+            alert("本日のガチャ回数（3回）上限に達しました！明日また挑戦してね🐹");
+            return;
+        }
+
+        // カウントを保存＆更新
+        const newCount = savedCount + 1;
+        localStorage.setItem("gacha_date", today);
+        localStorage.setItem("gacha_count", String(newCount));
+        setRemainingCount(MAX_GACHA_LIMIT - newCount);
+
         const randomIndex = Math.floor(Math.random() * HAMSTER_DATA.length);
         const selected = HAMSTER_DATA[randomIndex];
         setGachaResult(selected);
@@ -70,14 +107,23 @@ export default function GachaPage() {
                     🐹 ハムガチャ 🐹
                 </h1>
 
+                {/* 残り回数の表示 */}
+                <p className="text-sm font-bold text-amber-600 mb-6">
+                    本日の残り回数: <span className="text-lg">{remainingCount}</span> / {MAX_GACHA_LIMIT}回
+                </p>
+
                 {/* 通常画面 */}
                 {gachaState === "idle" && (
                     <>
                         <button
                             onClick={handleGacha}
-                            className="border-2 border-black bg-white px-5 py-3 mb-6 font-semibold text-black ring-2 ring-black ring-offset-2 ring-offset-yellow-300 hover:bg-yellow-200 focus:ring-2 focus:ring-yellow-300 focus:outline-0 cursor-pointer"
+                            disabled={remainingCount <= 0}
+                            className={`border-2 border-black px-5 py-3 mb-6 font-semibold text-black ring-2 ring-black ring-offset-2 ring-offset-yellow-300 focus:outline-0 cursor-pointer transition-colors ${remainingCount > 0
+                                ? "bg-white hover:bg-yellow-200 focus:ring-2 focus:ring-yellow-300"
+                                : "bg-gray-200 text-gray-400 cursor-not-allowed ring-gray-400 ring-offset-gray-100 hover:bg-gray-200"
+                                }`}
                         >
-                            ✨ 回す ✨
+                            {remainingCount > 0 ? "✨ 回す ✨" : "本日は終了しました"}
                         </button>
 
                         <div className="py-12 text-gray-400 border-2 border-dashed border-amber-200 rounded-2xl">

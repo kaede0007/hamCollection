@@ -70,5 +70,5 @@ export const HAMSTER_DATA: Hamster[] = [
     { id: 60, name: "サイバーハム", rarity: "SSR", image: "/images/hamsimage/ham60.webp", description: "君の努力ログをブロックチェーンに永久保存したよ。誰が否定しても君の実績は本物だ。" },
     { id: 61, name: "マッドドクターハム", rarity: "SSR", image: "/images/hamsimage/ham61.webp", description: "ヒヒヒ…『元気が出る怪しい秘薬』の完成だ！これを飲んで明日も最高の成果を見せてくれ！" },
     { id: 62, name: "スペースハム", rarity: "SSR", image: "/images/hamsimage/ham62.webp", description: "宇宙から見れば小さな悩みさ！大きなスケールで自分のやりたいことに挑んでいこう！" },
-    { id: 63, name: "レインボーハム", rarity: "SECRET", image: "/images/hamsimage/ham63.webp", description: "出会えて奇跡.雨のあとに虹がかかるように、君のこれまでの努力は必ず最高の未来に繋がっているヨ." },
+    { id: 63, name: "レインボーハム", rarity: "SECRET", image: "/images/hamsimage/ham63.webp", description: "出会えて奇跡。雨のあとに虹がかかるように、君のこれまでの努力は必ず最高の未来に繋がっているヨ。" },
 ];
