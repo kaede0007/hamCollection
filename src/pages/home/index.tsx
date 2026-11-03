@@ -9,7 +9,7 @@ export default function HomePage() {
                     🐹 HamCollection
                 </h1>
                 <p className="text-amber-700 text-lg">
-                    幻(?)のシークレットハムを狙え！あなただけの図鑑を完成させよう。
+                    全64匹のハムスターたちが、あなたの頑張りを癒やし、応援してくれる図鑑アプリ。
                 </p>
             </div>
 
